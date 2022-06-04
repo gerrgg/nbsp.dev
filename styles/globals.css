@@ -6,11 +6,23 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+:root {
+  /* setup base */
+  --base-black: 207, 15%;
 
-* {
-  box-sizing: border-box;
+  /* setup variants */
+  --black-10: var(--base-black), 10%;
+  --black-20: var(--base-black), 20%;
+  --black-30: var(--base-black), 30%;
+  --black-40: var(--base-black), 40%;
+  --black-50: var(--base-black), 50%;
+  --black-60: var(--base-black), 60%;
+  --black-70: var(--base-black), 70%;
+  --black-80: var(--base-black), 80%;
+  --black-90: var(--base-black), 90%;
+  --black-100: var(--base-black), 100%;
+
+  /* setup preset colors for use on components */
+  --brand: hsla(var(--black-10), 90%);
+  --body: hsla(var(--black-90), 50%);
 }

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState, useRef } from "react";
 import { useSpring, animated, config } from "react-spring";
+import { keyframes } from "styled-components";
 
 function Logo() {
   let [newText, setNewText] = useState("");
@@ -27,17 +28,6 @@ function Logo() {
     };
   }, []);
 
-  const styles = useSpring({
-    loop: true,
-    to: [
-      { opacity: 1, color: "#ffaaee" },
-      { opacity: 0, color: "rgba(255, 255, 255, 0.2)" },
-    ],
-    from: { opacity: 0 },
-    delay: 50,
-    config: config.default,
-  });
-
   return (
     <Root>
       <Font ref={textRef}>
@@ -45,10 +35,20 @@ function Logo() {
           <span key={`logoText-${i}`}>{letter}</span>
         ))}
       </Font>
-      <Cursor as={animated.div} style={styles} />
+      <Cursor />
     </Root>
   );
 }
+
+const fadeInandOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+`;
 
 const Root = styled.div`
   position: relative;
@@ -72,6 +72,7 @@ const Cursor = styled.span`
   height: 100%;
   width: 2px;
   background: blue;
+  animation: ${fadeInandOut} 2s linear infinite;
 `;
 
 export default Logo;

@@ -9,6 +9,8 @@ const Root = styled.div`
   padding: 0 15px;
   box-sizing: border-box;
   display: flex;
+  align-items: center;
+  background: var(--brand, #fff);
 `;
 
 function Header() {
