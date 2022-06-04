@@ -18,6 +18,10 @@ h6 {
   font-family: var(--header-font);
 }
 
+a {
+  color: var(--body, #333);
+}
+
 :root {
   --title-font: "Libre Barcode 39 Extended Text";
   --header-font: "Neucha";

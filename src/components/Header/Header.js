@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Logo from "./Logo";
 import Menu from "./Menu";
-import Icons from "./Icons";
+import Icons from "./Icons/Icons";
 
 const Root = styled.div`
   max-width: 1100px;
@@ -9,7 +9,7 @@ const Root = styled.div`
   padding: 0 15px;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 `;
 
 function Header() {

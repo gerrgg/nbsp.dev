@@ -40,21 +40,21 @@ const MenuItem = styled.li`
 const MenuLink = styled.a`
   color: var(--body, #fff);
   text-decoration: none;
-  transition: color 0.25s ease-in;
+  transition: color 0.1s ease-in;
 
   &::before {
     content: "&";
     color: var(--light-secondary, #fff);
     padding-right: 5px;
     font-size: 30px;
-    transition: color 0.25s ease-in;
+    transition: color 0.1s ease-in;
   }
 
   &::after {
     content: ";";
     color: var(--light-secondary, #fff);
     font-size: 28px;
-    transition: color 0.25s ease-in;
+    transition: color 0.1s ease-in;
   }
 
   &:hover {

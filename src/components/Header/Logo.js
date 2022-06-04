@@ -69,12 +69,13 @@ const Font = styled.h1`
 `;
 
 const Cursor = styled.span`
-  position: absolute;
   right: -10px;
-  height: 100%;
+  height: 40px;
   width: 2px;
   background: var(--light-secondary);
   animation: ${fadeInandOut} 2s linear infinite;
+  position: relative;
+  top: -3px;
 `;
 
 export default Logo;
