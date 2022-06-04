@@ -5,12 +5,11 @@ import Icons from "./Icons";
 
 const Root = styled.div`
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 15px auto 0 auto;
   padding: 0 15px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  background: var(--brand, #fff);
 `;
 
 function Header() {

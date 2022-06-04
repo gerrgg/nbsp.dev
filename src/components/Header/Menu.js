@@ -31,18 +31,39 @@ const Root = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  font-family: ${({ theme }) => theme.fonts.logo};
-  font-size: 24px;
+  font-family: var(--body-font);
+  font-size: 22px;
   line-height: 1.1;
   list-style: none;
 `;
 
 const MenuLink = styled.a`
   color: var(--body, #fff);
-  text-decortation: none;
+  text-decoration: none;
+  transition: color 0.25s ease-in;
+
+  &::before {
+    content: "&";
+    color: var(--light-secondary, #fff);
+    padding-right: 5px;
+    font-size: 30px;
+    transition: color 0.25s ease-in;
+  }
+
+  &::after {
+    content: ";";
+    color: var(--light-secondary, #fff);
+    font-size: 28px;
+    transition: color 0.25s ease-in;
+  }
 
   &:hover {
-    color: blue;
+    color: var(--light-secondary, #fff);
+
+    &::before,
+    &::after {
+      color: var(--light-primary, #fff);
+    }
   }
 `;
 
