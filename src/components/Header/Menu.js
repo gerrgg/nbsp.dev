@@ -1,26 +1,21 @@
 import styled from "styled-components";
 import Link from "next/link";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
-function Menu() {
-  const menu = [
-    { label: "How to's", url: "/how-to" },
-    { label: "Projects", url: "/projects" },
-    { label: "Resume", url: "/resume" },
-  ];
+function Menu({ menu }) {
+  const { height, width } = useWindowDimensions();
 
-  return (
-    <Root>
-      {menu.map((link, i) => (
-        <MenuItem key={`link-${i}`}>
-          {
-            <Link href={link.url} passHref>
-              <MenuLink>{link.label}</MenuLink>
-            </Link>
-          }
-        </MenuItem>
-      ))}
-    </Root>
-  );
+  const MainMenu = menu.map((link, i) => (
+    <MenuItem key={`link-${i}`} display={height > 900 ? "block" : "none"}>
+      {
+        <Link href={link.url} passHref>
+          <MenuLink>{link.label}</MenuLink>
+        </Link>
+      }
+    </MenuItem>
+  ));
+
+  return <Root>{MainMenu}</Root>;
 }
 
 const Root = styled.ul`
@@ -48,6 +43,10 @@ const MenuLink = styled.a`
     padding-right: 5px;
     font-size: 30px;
     transition: color 0.1s ease-in;
+
+    @media (max-width: 950px) {
+      font-size: 20px;
+    }
   }
 
   &::after {
@@ -55,6 +54,10 @@ const MenuLink = styled.a`
     color: var(--light-secondary, #fff);
     font-size: 28px;
     transition: color 0.1s ease-in;
+
+    @media (max-width: 950px) {
+      font-size: 20px;
+    }
   }
 
   &:hover {

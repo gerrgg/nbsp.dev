@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState, useRef } from "react";
 import { useSpring, animated, config } from "react-spring";
+import Link from "next/link";
 import { keyframes } from "styled-components";
 
 function Logo() {

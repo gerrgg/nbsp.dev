@@ -6,18 +6,9 @@ import Wordpress from "./wordpress.svg";
 import useBoop from "../../../hooks/useBoop";
 import { animated } from "react-spring";
 
-function Icons() {
-  const [style, trigger] = useBoop({
-    rotation: -45,
-    x: 5,
-    springConfig: {
-      tension: 100,
-      friction: 5,
-    },
-  });
-
+function Icons({ center }) {
   return (
-    <Root>
+    <Root center={center}>
       <GithubIcon />
       <WordpressIcon />
       <RSSIcon />
@@ -27,9 +18,8 @@ function Icons() {
 
 const GithubIcon = () => {
   const [style, trigger] = useBoop({
-    rotation: -45,
     y: -5,
-    x: 5,
+    rotation: -15,
     springConfig: {
       tension: 100,
       friction: 5,
@@ -40,7 +30,7 @@ const GithubIcon = () => {
     <AnimatedLink
       onMouseEnter={trigger}
       style={style}
-      href="https://github.com"
+      href="https://github.com/gerrgg"
       target="_blank"
     >
       <Github fill="currentColor" />
@@ -50,11 +40,10 @@ const GithubIcon = () => {
 
 const WordpressIcon = () => {
   const [style, trigger] = useBoop({
-    rotation: 45,
-    x: 5,
+    y: -5,
     springConfig: {
       tension: 100,
-      friction: 15,
+      friction: 5,
     },
   });
 
@@ -72,12 +61,11 @@ const WordpressIcon = () => {
 
 const RSSIcon = () => {
   const [style, trigger] = useBoop({
-    rotation: 45,
     y: -5,
-    x: -5,
+    rotation: 15,
     springConfig: {
-      tension: 150,
-      friction: 15,
+      tension: 100,
+      friction: 5,
     },
   });
 
@@ -97,7 +85,8 @@ const Root = styled.ul`
   display: flex;
   gap: 30px;
   align-items: center;
-  margin: 0 0 0 auto;
+  margin: ${({ center }) => (center ? "0 auto" : "0 0 0 auto;")};
+  padding: 0;
 `;
 
 const IconLink = styled.a`
