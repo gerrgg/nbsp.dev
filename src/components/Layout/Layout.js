@@ -15,4 +15,5 @@ export default function Layout({ children }) {
 const Wrapper = styled.div`
   max-width: 1000px;
   margin: 100px auto 0 auto;
+  padding: 0 15px;
 `;

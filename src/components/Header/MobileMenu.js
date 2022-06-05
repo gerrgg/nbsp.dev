@@ -9,7 +9,7 @@ function MobileMenu({ mobileMenuIsOpen, menu, toggleMobileMenu }) {
   const { height, width } = useWindowDimensions();
 
   const styles = useSpring({
-    top: mobileMenuIsOpen ? "-15px" : `-${height + 100}px`,
+    top: mobileMenuIsOpen ? -15 : height,
   });
 
   const Wrapper = animated(Root);
