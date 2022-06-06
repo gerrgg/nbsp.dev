@@ -94,7 +94,7 @@ const IconLink = styled.a`
   color: var(--primary);
 
   &:hover {
-    color: var(--secondary);
+    color: var(--accent);
   }
 `;
 

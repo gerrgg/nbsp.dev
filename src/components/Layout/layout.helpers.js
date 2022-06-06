@@ -1,4 +1,4 @@
-export const handleTheme = () => {
+export const handleTheme = (useDefault = false) => {
   const defaultTheme = {
     colors: [
       { label: "dark", h: 272, s: 21 },
@@ -7,6 +7,8 @@ export const handleTheme = () => {
       { label: "accent", h: 131, s: 62 },
     ],
   };
+
+  if (useDefault) return defaultTheme;
 
   if (
     typeof localStorage !== "undefined" &&

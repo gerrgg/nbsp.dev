@@ -31,11 +31,13 @@ function Logo() {
 
   return (
     <Root>
-      <Font ref={textRef}>
-        {newText.split().map((letter, i) => (
-          <span key={`logoText-${i}`}>{letter}</span>
-        ))}
-      </Font>
+      <Link href="/" passHref>
+        <Font ref={textRef}>
+          {newText.split().map((letter, i) => (
+            <span key={`logoText-${i}`}>{letter}</span>
+          ))}
+        </Font>
+      </Link>
       <Cursor />
     </Root>
   );
@@ -57,7 +59,7 @@ const Root = styled.div`
   height: 34px;
 `;
 
-const Font = styled.h1`
+const Font = styled.a`
   font-family: var(--title-font);
   letter-spacing: 0.125em;
   font-size: 40px;
@@ -65,8 +67,19 @@ const Font = styled.h1`
   width: auto;
   margin: 0;
   text-transform: uppercase;
+  text-decoration: none;
   color: var(--primary);
   font-weight: 700;
+
+  span {
+    transition: color 0.5s ease;
+  }
+
+  &:hover {
+    span {
+      color: var(--accent);
+    }
+  }
 `;
 
 const Cursor = styled.span`

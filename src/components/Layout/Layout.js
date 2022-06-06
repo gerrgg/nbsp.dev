@@ -78,6 +78,15 @@ export default function Layout({ children }) {
           <HslColorPicker color={accent} onChange={setAccent} />
         </Field>
       </Flex>
+      <Flex>
+        <ClearButton
+          onClick={() => {
+            setSelectedTheme(handleTheme(true));
+          }}
+        >
+          Clear
+        </ClearButton>
+      </Flex>
     </ThemeProvider>
   );
 }
@@ -85,7 +94,11 @@ export default function Layout({ children }) {
 const Wrapper = styled.div`
   max-width: 1000px;
   margin: 100px auto 0 auto;
-  padding: 0 15px;
+  padding: 25px 15px 50px;
+  background: var(--mobileMenuBackgroundLight);
+  border-radius: 24px;
+  color: var(--mobileMenuAccentLight);
+  font-weight: 700;
 `;
 
 const Flex = styled.div`
@@ -102,4 +115,15 @@ const Field = styled.div`
   gap: 15px;
   justify-content: center;
   flex-direction: column;
+`;
+
+const ClearButton = styled.button`
+  padding: 10px 20px;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  appearance: none;
+  font-size: 24px;
+  margin: 0 auto;
+  font-family: var(--header-font);
 `;

@@ -54,12 +54,18 @@ const GlobalStyles = createGlobalStyle`
   
     --mobileMenuBackground: hsla(var(--accent-60), 60%);
     --mobileMenuAccent: hsla(var(--dark-90), 80%);
+
+    --mobileMenuBackgroundLight: hsla(var(--accent-90), 80%);
+    --mobileMenuAccentLight: hsla(var(--accent-20), 100%);
   
     --primary: hsla(var(--primary-70), 100%);
     --light-primary: hsla(var(--primary-80), 70%);
   
     --secondary: hsla(var(--secondary-50), 100%);
     --light-secondary: hsla(var(--secondary-50), 70%);
+
+    --accent: hsla(var(--accent-60), 80%);
+    --light-accent: hsla(var(--accent-90), 90%);
   }
 `;
 

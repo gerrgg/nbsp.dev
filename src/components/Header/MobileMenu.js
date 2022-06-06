@@ -9,6 +9,7 @@ function MobileMenu({ mobileMenuIsOpen, menu, toggleMobileMenu }) {
   const { height, width } = useWindowDimensions();
 
   const styles = useSpring({
+    display: mobileMenuIsOpen ? "flex" : "none",
     top: mobileMenuIsOpen ? -15 : height,
   });
 
@@ -71,7 +72,7 @@ const MenuItem = styled.li`
 `;
 
 const MenuLink = styled.a`
-  color: var(--mobileMenuAccent, #fff);
+  color: var(--body, #fff);
   text-decoration: none;
   transition: color 0.1s ease-in;
 
