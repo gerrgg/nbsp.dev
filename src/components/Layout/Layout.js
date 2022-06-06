@@ -1,29 +1,59 @@
 import Header from "../Header";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
-import theme from "../../helpers/theme";
 import { useEffect, useState } from "react";
 import { HslColorPicker } from "react-colorful";
+import { handleTheme } from "./layout.helpers";
 
 export default function Layout({ children }) {
-  const [selectedTheme, setSelectedTheme] = useState(theme);
+  // write helper to get local storage theme or use default
+  const [selectedTheme, setSelectedTheme] = useState(handleTheme);
 
-  const [dark, setDark] = useState({ h: 272, s: 21, l: 100 });
-  const [primary, setPrimary] = useState({ h: 64, s: 87, l: 100 });
-  const [secondary, setSecondary] = useState({ h: 39, s: 92, l: 100 });
-  const [accent, setAccent] = useState({ h: 131, s: 62, l: 100 });
+  const _color = (key, value) => {
+    const selection = selectedTheme.colors.find(({ label }) => label === key);
+
+    return value === "h" ? selection.h : selection.s;
+  };
+
+  // set default state using local theme or default
+  const [dark, setDark] = useState({
+    h: _color("dark", "h"),
+    s: _color("dark", "s"),
+    l: 100,
+  });
+
+  const [primary, setPrimary] = useState({
+    h: _color("primary", "h"),
+    s: _color("primary", "s"),
+    l: 100,
+  });
+
+  const [secondary, setSecondary] = useState({
+    h: _color("secondary", "h"),
+    s: _color("secondary", "s"),
+    l: 100,
+  });
+
+  const [accent, setAccent] = useState({
+    h: _color("accent", "h"),
+    s: _color("accent", "s"),
+    l: 100,
+  });
 
   useEffect(() => {
     const userTheme = {
       colors: [
-        { label: "dark", code: `${dark.h}, ${dark.s}%` },
-        { label: "primary", code: `${primary.h}, ${primary.s}%` },
-        { label: "secondary", code: `${secondary.h}, ${secondary.s}%` },
-        { label: "accent", code: `${accent.h}, ${accent.s}%` },
+        { label: "dark", h: dark.h, s: dark.s },
+        { label: "primary", h: primary.h, s: primary.s },
+        { label: "secondary", h: secondary.h, s: secondary.s },
+        { label: "accent", h: accent.h, s: accent.s },
       ],
     };
 
     setSelectedTheme(userTheme);
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("userTheme", JSON.stringify(userTheme));
+    }
   }, [dark, primary, secondary, accent]);
 
   return (
@@ -33,19 +63,19 @@ export default function Layout({ children }) {
       <Flex>
         <Field>
           <h2>Dark</h2>
-          <HslColorPicker color={dark} onChange={setDark} alpha />
+          <HslColorPicker color={dark} onChange={setDark} />
         </Field>
         <Field>
           <h2>Primary</h2>
-          <HslColorPicker color={primary} onChange={setPrimary} alpha />
+          <HslColorPicker color={primary} onChange={setPrimary} />
         </Field>
         <Field>
           <h2>Secondary</h2>
-          <HslColorPicker color={secondary} onChange={setSecondary} alpha />
+          <HslColorPicker color={secondary} onChange={setSecondary} />
         </Field>
         <Field>
           <h2>Accent</h2>
-          <HslColorPicker color={accent} onChange={setAccent} alpha />
+          <HslColorPicker color={accent} onChange={setAccent} />
         </Field>
       </Flex>
     </ThemeProvider>

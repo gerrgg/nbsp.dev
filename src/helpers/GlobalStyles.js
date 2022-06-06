@@ -35,8 +35,8 @@ const GlobalStyles = createGlobalStyle`
   
 
     ${({ theme }) => {
-      const colors = theme.colors.map(({ label, code }) => {
-        let css = `--base-${label}: ${code};`;
+      const colors = theme.colors.map(({ label, h, s }) => {
+        let css = `--base-${label}: ${h}, ${s}%;`;
 
         for (let i = 1; i <= 10; i++) {
           css += `--${label}-${i * 10}: var(--base-${label}), ${i * 10}%;`;
