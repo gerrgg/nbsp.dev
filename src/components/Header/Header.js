@@ -6,7 +6,6 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { Sling as Hamburger } from "hamburger-react";
 import MobileMenu from "./MobileMenu";
 import { useState } from "react";
-import Link from "next/link";
 
 function Header() {
   const { height, width } = useWindowDimensions();
@@ -25,14 +24,16 @@ function Header() {
   return (
     <Root>
       <Logo />
-      {width > 900 ? (
+      {width > 1050 ? (
         <Flex>
           <Menu menu={menu} />
           <Icons />
         </Flex>
       ) : (
         <div>
-          <Hamburger toggled={isOpen} toggle={setOpen} />
+          <ButtonWrapper>
+            <Hamburger toggled={isOpen} toggle={setOpen} />
+          </ButtonWrapper>
           <MobileMenu
             mobileMenuIsOpen={isOpen}
             toggleMobileMenu={toggleMobileMenu}
@@ -46,41 +47,40 @@ function Header() {
 
 const pulse = keyframes`
   0% {
-    filter: drop-shadow(0px 0px 5px var(--light-secondary));
-  }
-
-  50% {
-    filter: drop-shadow(0px 0px 20px var(--light-secondary));
+    filter: drop-shadow(0px 0px 25px var(--light-accent));
   }
 
   100% {
-    filter: drop-shadow(0px 0px 5px var(--light-secondary));
+    filter: drop-shadow(0px 0px 100px var(--light-secondary));
   }
 `;
 
 const Root = styled.div`
   position: fixed;
   width: 100%;
-  max-width: 1100px;
-  padding: 15px 15px;
+  max-width: 1200px;
+  padding: 15px 50px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-end;
-  top: 0px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
   padding-bottom: 15px;
-  border-bottom: 1px solid var(--secondary);
-  border-left: 1px solid var(--secondary);
-  border-right: 1px solid var(--secondary);
-  transition: all 0.5s ease;
+  height: 70px;
+  background: var(--light-background);
+  border-radius: 36px;
 
-  background: var(--background);
+  animation: ${pulse} 10s linear infinite alternate;
 
-  animation: ${pulse} 5s linear infinite;
-
-  @media (max-width: 900px) {
+  @media (max-width: 1250px) {
+    width: calc(100vw - 50px);
     justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 600px) {
+    padding: 15px 30px;
   }
 `;
 
@@ -89,6 +89,11 @@ const Flex = styled.div`
   justify-content: space-between;
   width: 100%;
   align-items: flex-end;
+`;
+
+const ButtonWrapper = styled.div`
+  position: relative;
+  top: 4px;
 `;
 
 export default Header;

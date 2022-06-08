@@ -6,7 +6,7 @@ function Menu({ menu }) {
   const { height, width } = useWindowDimensions();
 
   const MainMenu = menu.map((link, i) => (
-    <MenuItem key={`link-${i}`} display={height > 900 ? "block" : "none"}>
+    <MenuItem key={`link-${i}`} display={height > 1050 ? "block" : "none"}>
       {
         <Link href={link.url} passHref>
           <MenuLink>{link.label}</MenuLink>
@@ -23,6 +23,11 @@ const Root = styled.ul`
   gap: 30px;
   align-items: center;
   margin: 0;
+  height: 40px;
+
+  @media (max-width: 1050px) {
+    display: none;
+  }
 `;
 
 const MenuItem = styled.li`
@@ -30,10 +35,11 @@ const MenuItem = styled.li`
   font-size: 22px;
   line-height: 1.1;
   list-style: none;
+  height: 100%;
 `;
 
 const MenuLink = styled.a`
-  color: var(--body, #fff);
+  color: var(--light-body, #fff);
   text-decoration: none;
   transition: color 0.1s ease-in;
 
@@ -43,10 +49,6 @@ const MenuLink = styled.a`
     padding-right: 5px;
     font-size: 30px;
     transition: color 0.1s ease-in;
-
-    @media (max-width: 950px) {
-      font-size: 20px;
-    }
   }
 
   &::after {
@@ -54,10 +56,6 @@ const MenuLink = styled.a`
     color: var(--light-secondary, #fff);
     font-size: 28px;
     transition: color 0.1s ease-in;
-
-    @media (max-width: 950px) {
-      font-size: 20px;
-    }
   }
 
   &:hover {

@@ -87,14 +87,20 @@ const Root = styled.ul`
   align-items: center;
   margin: ${({ center }) => (center ? "0 auto" : "0 0 0 auto;")};
   padding: 0;
+  height: 40px;
+  align-items: center;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 const IconLink = styled.a`
   transition: color 0.1s ease-in;
-  color: var(--primary);
+  color: var(--light-secondary);
 
   &:hover {
-    color: var(--accent);
+    color: var(--light-accent);
   }
 `;
 

@@ -43,7 +43,7 @@ const Root = styled.div`
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background-color: var(--mobileMenuBackground);
+  background-color: var(--secondary);
   left: 0;
   gap: 30px;
   padding: 15px;
@@ -53,6 +53,7 @@ const Root = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 5;
+  left: -25px;
 `;
 
 const List = styled.ul`
@@ -72,12 +73,12 @@ const MenuItem = styled.li`
 `;
 
 const MenuLink = styled.a`
-  color: var(--body, #fff);
+  color: var(--light-accent, #fff);
   text-decoration: none;
   transition: color 0.1s ease-in;
 
   &:hover {
-    color: var(--light-secondary, #fff);
+    color: var(--dark-primary, #fff);
 
     &::before,
     &::after {

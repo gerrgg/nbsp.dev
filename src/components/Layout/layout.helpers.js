@@ -1,7 +1,6 @@
 export const handleTheme = (useDefault = false) => {
   const defaultTheme = {
     colors: [
-      { label: "dark", h: 272, s: 21 },
       { label: "primary", h: 64, s: 87 },
       { label: "secondary", h: 39, s: 92 },
       { label: "accent", h: 131, s: 62 },

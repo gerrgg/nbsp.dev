@@ -16,11 +16,6 @@ export default function Layout({ children }) {
   };
 
   // set default state using local theme or default
-  const [dark, setDark] = useState({
-    h: _color("dark", "h"),
-    s: _color("dark", "s"),
-    l: 100,
-  });
 
   const [primary, setPrimary] = useState({
     h: _color("primary", "h"),
@@ -43,7 +38,6 @@ export default function Layout({ children }) {
   useEffect(() => {
     const userTheme = {
       colors: [
-        { label: "dark", h: dark.h, s: dark.s },
         { label: "primary", h: primary.h, s: primary.s },
         { label: "secondary", h: secondary.h, s: secondary.s },
         { label: "accent", h: accent.h, s: accent.s },
@@ -51,20 +45,17 @@ export default function Layout({ children }) {
     };
 
     setSelectedTheme(userTheme);
+
     if (typeof localStorage !== "undefined") {
       localStorage.setItem("userTheme", JSON.stringify(userTheme));
     }
-  }, [dark, primary, secondary, accent]);
+  }, [primary, secondary, accent]);
 
   return (
     <ThemeProvider theme={selectedTheme}>
       <Header />
       <Wrapper>{children}</Wrapper>
       <Flex>
-        <Field>
-          <h2>Dark</h2>
-          <HslColorPicker color={dark} onChange={setDark} />
-        </Field>
         <Field>
           <h2>Primary</h2>
           <HslColorPicker color={primary} onChange={setPrimary} />
@@ -93,12 +84,17 @@ export default function Layout({ children }) {
 
 const Wrapper = styled.div`
   max-width: 1000px;
-  margin: 100px auto 0 auto;
+  margin: 125px auto 0 auto;
   padding: 25px 15px 50px;
   background: var(--mobileMenuBackgroundLight);
   border-radius: 24px;
   color: var(--mobileMenuAccentLight);
   font-weight: 700;
+
+  @media (max-width: 1250px) {
+    width: calc(100vw - 50px);
+    box-sizing: border-box;
+  }
 `;
 
 const Flex = styled.div`

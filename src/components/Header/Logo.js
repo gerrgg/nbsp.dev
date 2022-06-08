@@ -56,7 +56,8 @@ const fadeInandOut = keyframes`
 const Root = styled.div`
   position: relative;
   display: inline-flex;
-  height: 34px;
+  height: 40px;
+  top: 6px;
 `;
 
 const Font = styled.a`
@@ -68,8 +69,10 @@ const Font = styled.a`
   margin: 0;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--primary);
+  color: var(--light-body);
   font-weight: 700;
+  position: relative;
+  top: -2px;
 
   span {
     transition: color 0.5s ease;
@@ -77,19 +80,19 @@ const Font = styled.a`
 
   &:hover {
     span {
-      color: var(--accent);
+      color: var(--light-accent);
     }
   }
 `;
 
 const Cursor = styled.span`
   right: -10px;
-  height: 40px;
+  height: 45px;
   width: 2px;
   background: var(--light-secondary);
   animation: ${fadeInandOut} 2s linear infinite;
   position: relative;
-  top: -3px;
+  top: -8px;
 `;
 
 export default Logo;

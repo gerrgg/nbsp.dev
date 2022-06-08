@@ -9,8 +9,8 @@ const GlobalStyles = createGlobalStyle`
       Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     min-height: 100vh;
 
-    color: var(--body, #333);
-    background: var(--background, #fff);
+    color: var(--light-body, #333);
+    background: var(--dark-background, #fff);
     font-family: var(--body-font);
   }
 
@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: var(--body, #333);
+    color: var(--primary, #333);
   }
 
   :root {
@@ -33,6 +33,30 @@ const GlobalStyles = createGlobalStyle`
     --header-font: "Chango";
     --body-font: "Source Code Pro";
   
+    /* setup preset colors for use on components */
+    --dark-background: hsla(var(--primary-10), 100%);
+    --light-background: hsla(var(--primary-10), 90%);
+
+    --dark-body: hsla(var(--primary-90), 100%);
+    --light-body: hsla(var(--primary-80), 100%);
+  
+    --mobileMenuBackground: hsla(var(--accent-60), 60%);
+    --mobileMenuAccent: hsla(var(--primary-90), 80%);
+
+    --mobileMenuBackgroundLight: hsla(var(--accent-90), 80%);
+    --mobileMenuAccentLight: hsla(var(--accent-20), 100%);
+  
+    --dark-primary: hsla(var(--primary-10), 70%);
+    --primary: hsla(var(--primary-50), 90%);
+    --light-primary: hsla(var(--primary-70), 70%);
+  
+    --dark-secondary: hsla(var(--secondary-30), 60%);
+    --secondary: hsla(var(--secondary-50), 100%);
+    --secondary: hsla(var(--secondary-50), 50%);
+    --light-secondary: hsla(var(--secondary-70), 90%);
+
+    --accent: hsla(var(--accent-50), 100%);
+    --light-accent: hsla(var(--accent-70), 100%);
 
     ${({ theme }) => {
       const colors = theme.colors.map(({ label, h, s }) => {
@@ -48,24 +72,7 @@ const GlobalStyles = createGlobalStyle`
       return colors.join(" ");
     }}
   
-    /* setup preset colors for use on components */
-    --background: hsla(var(--dark-10), 100%);
-    --body: hsla(var(--dark-80), 90%);
-  
-    --mobileMenuBackground: hsla(var(--accent-60), 60%);
-    --mobileMenuAccent: hsla(var(--dark-90), 80%);
-
-    --mobileMenuBackgroundLight: hsla(var(--accent-90), 80%);
-    --mobileMenuAccentLight: hsla(var(--accent-20), 100%);
-  
-    --primary: hsla(var(--primary-70), 100%);
-    --light-primary: hsla(var(--primary-80), 70%);
-  
-    --secondary: hsla(var(--secondary-50), 100%);
-    --light-secondary: hsla(var(--secondary-50), 70%);
-
-    --accent: hsla(var(--accent-60), 80%);
-    --light-accent: hsla(var(--accent-90), 90%);
+    
   }
 `;
 
