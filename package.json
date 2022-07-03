@@ -10,12 +10,17 @@
   },
   "dependencies": {
     "@svgr/webpack": "^6.2.1",
+    "fs": "^0.0.1-security",
+    "gray-matter": "^4.0.3",
     "hamburger-react": "^2.5.0",
     "next": "12.1.6",
+    "path": "^0.12.7",
     "react": "18.1.0",
     "react-colorful": "^5.5.1",
     "react-dom": "18.1.0",
     "react-spring": "^9.4.5",
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.1",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

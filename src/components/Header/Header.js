@@ -12,7 +12,7 @@ function Header() {
   const [isOpen, setOpen] = useState(false);
 
   const menu = [
-    { label: "How to's", url: "/how-to" },
+    { label: "How to's", url: "/posts" },
     { label: "Projects", url: "/projects" },
     { label: "Resume", url: "/resume" },
   ];
@@ -51,7 +51,7 @@ const pulse = keyframes`
   }
 
   100% {
-    filter: drop-shadow(0px 0px 100px var(--light-secondary));
+    filter: drop-shadow(0px 0px 5px var(--light-secondary));
   }
 `;
 
@@ -63,14 +63,14 @@ const Root = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: flex-end;
-  top: 15px;
+  top: 25px;
   left: 50%;
   transform: translateX(-50%);
   padding-bottom: 15px;
   height: 70px;
   background: var(--light-background);
 
-  animation: ${pulse} 10s linear infinite alternate;
+  animation: ${pulse} 3s linear infinite alternate;
 
   @media (max-width: 1250px) {
     width: calc(100vw - 50px);
