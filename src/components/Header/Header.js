@@ -59,7 +59,7 @@ const Root = styled.div`
   position: fixed;
   width: 100%;
   max-width: 1200px;
-  padding: 15px 50px;
+  padding: 15px 30px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-end;
@@ -69,7 +69,6 @@ const Root = styled.div`
   padding-bottom: 15px;
   height: 70px;
   background: var(--light-background);
-  border-radius: 36px;
 
   animation: ${pulse} 10s linear infinite alternate;
 
@@ -80,7 +79,7 @@ const Root = styled.div`
   }
 
   @media (max-width: 600px) {
-    padding: 15px 30px;
+    padding: 15px 15px;
   }
 `;
 
